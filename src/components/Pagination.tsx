@@ -12,12 +12,10 @@ const Pagination: React.FC<Props> = ({
   goToNextPage,
 }) => {
   return (
-    <div>
-      {isPrevPageAvailable && (
-        <button onClick={goToPreviousPage}>Previous</button>
-      )}
+    <>
+      {isPrevPageAvailable && <button onClick={goToPreviousPage}>Previous</button>}
       {isNextPageAvailable && <button onClick={goToNextPage}>Next</button>}
-    </div>
+    </>
   );
 };
 

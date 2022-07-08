@@ -4,7 +4,7 @@ import Pagination from "./components/Pagination";
 import Pokemons from "./components/Pokemons";
 
 export default function App() {
-  const baseUrl = "https://pokeapi.co/api/v2/pokemon";
+  const baseUrl = process.env.REACT_APP_BASE_URL as string;
   const [pokemons, setPokemons] = useState([]);
   const [currentPageUrl, setCurrentPageUrl] = useState(baseUrl);
   const [prevPageUrl, setPrevPageUrl] = useState("");
@@ -44,7 +44,9 @@ export default function App() {
 
   return (
     <>
-      {isLoading ? "Loading..." : <Pokemons pokemons={pokemons} />}
+      <div style={{ height: "37rem" }}>
+        {isLoading ? "Loading..." : <Pokemons pokemons={pokemons} />}
+      </div>
       <Pagination
         isPrevPageAvailable={isPrevPageAvailable}
         isNextPageAvailable={isNextPageAvailable}
